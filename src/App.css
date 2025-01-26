@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(30deg, #2e2e2e, #131313, #1a1a1a);
+  height: 100vh;
+  background-size: cover;
+  filter: brightness(0.9);
+  overflow: hidden;
+}
+
+.grid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: fit-content;
+  margin: auto;
+  margin-top: 2%;
+  border: 15px solid rgb(255, 230, 0);
+  border-radius: 15px;
+  box-shadow: 0 -10px 30px rgba(251, 255, 0, 0.438);
+  z-index: 1;
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  width: 25px;
+  height: 15px;
+  background-color: transparent;
+  border: 1px solid #b1b1b1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, z-index 0s;
+  z-index: 0;
+}
+
+.cell:hover {
+  background-color: rgb(255, 230, 0);
+  transform: scale(1.4);
+  z-index: 1;
+}
+
+.cell.highlight {
+  background-color: rgb(255, 230, 0);
+  transform: scale(1.2);
+}
+
+.cell.reset-highlight {
+  background-color: green;
+  transform: scale(1.2);
+  border: none;
+  z-index: 1;
+}
+.highlight {
+  background-color: rgb(255, 230, 0);
+  transition: background-color 0.3s ease;
+}
+
+.reset-highlight {
+  background-color: green;
+  transition: background-color 0.1s ease;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.button {
+  margin: 20px 0 10px 0;
+  background-color: rgb(255, 230, 0);
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: rgb(255, 230, 0);
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6);
+}
+
+.button:active,
+.button.active {
+  transform: scale(0.95);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 230, 0, 0.5);
+}
+
+.history-button {
+  padding: 10px 10px;
+  margin: 20px 0 10px 0;
+  border: none;
+  background-color: transparent;
+  color: rgb(255, 230, 0);
+  font-size: large;
+  transition: all 0.3s ease;
+}
+
+.history-button:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+}
+
+.history-button:disabled {
+  color: #b1b1b1;
+  cursor: default;
+  transform: scale(1);
+}
+
+.left:active,
+.left.active {
+  transform: scale(0.95);
+  transform: rotate(-90deg);
+}
+
+.right:active,
+.right.active {
+  transform: scale(0.95);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 1800px) {
+  .cell {
+    width: 15px;
+    height: 10px;
+    font-size: 10px;
+  }
+
+  .button {
+    padding: 12px 25px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .cell {
+    width: 12px;
+    height: 8px;
+    font-size: 8px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+  .button-container {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cell {
+    width: 10px;
+    height: 6px;
+    font-size: 6px;
+  }
+  .button {
+    padding: 8px 15px;
+    font-size: 7px;
+  }
+  .button-container {
+    margin-top: 5px;
+  }
+}
