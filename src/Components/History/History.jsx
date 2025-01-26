@@ -13,7 +13,7 @@ const History = ({ initialGrid, onGridChange }) => {
     onGridChange(newGrid); // Inform parent about the grid change
   };
 
-
+  // Undo the last action
   const handleUndo = () => {
     if (currentStep > 0) {
       const prevGrid = history[currentStep - 1];
@@ -23,6 +23,7 @@ const History = ({ initialGrid, onGridChange }) => {
     }
   };
 
+  // Redo the last undone action
   const handleRedo = () => {
     if (redoStack.length > 0) {
       const nextGrid = redoStack[0];
@@ -33,6 +34,7 @@ const History = ({ initialGrid, onGridChange }) => {
     }
   };
 
+  // Reset the history to the initial state
   const resetHistory = () => {
     setHistory([initialGrid]);
     setCurrentStep(0);
